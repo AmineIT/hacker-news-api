@@ -1,60 +1,39 @@
-import { Heading, Box, Container, Tabs, TabList, Tab, TabPanels, TabPanel } from '@chakra-ui/react';
-import NewArticles from './new-articles';
-import TopArticles from './top-articles';
+import { Box } from '@chakra-ui/react';
+import Sidebar from './sidebar';
+import Search from './search';
 
-const Layout = () => {
+const Layout = ({ children }) => {
     return (
         <Box>
-            <Container maxW="container.xl">
 
+            <Box
+                h="80px"
+                w="100vw"
+                borderBottomWidth="2px"
+                d="flex"
+                alignItems="center"
+                justifyContent="center"
+                bg="gray.900"
+                pos="fixed"
+                top="0"
+            >
+                <Search />
+            </Box>
+
+            <Box
+                d="flex"
+                alignItems="end"
+            >
+                <Sidebar />
                 <Box
-                    my="60px"
+                    flex="1"
+                    ml="200px"
+                    mt="90px"
                 >
-                    <Heading
-                        mb="16px"
-                    >
-                        Hacker News
-                    </Heading>
+                    {children}
                 </Box>
+            </Box>
 
-                <Tabs
-                    bg="gray.900"
-                    isFitted
-                >
-
-                    <TabList mb="1em">
-                        <Tab
-                            fontWeight="600"
-                            _active={{
-                                backgroundColor: 'inherit'
-                            }}
-                        >
-                            New Articles
-                        </Tab>
-                        <Tab
-                            fontWeight="600"
-                            _active={{
-                                backgroundColor: 'inherit'
-                            }}
-                        >
-                            Top Articles
-                        </Tab>
-                    </TabList>
-
-                    <TabPanels>
-                        <TabPanel>
-                            {/* New Articles Component */}
-                            <NewArticles />
-                        </TabPanel>
-                        <TabPanel>
-                            {/* Top Articles Component */}
-                            <TopArticles />
-                        </TabPanel>
-                    </TabPanels>
-
-                </Tabs>
-
-            </Container>
         </Box>
     )
 }

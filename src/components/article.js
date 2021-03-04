@@ -2,29 +2,14 @@ import { Box, Heading, Text, Link } from '@chakra-ui/react';
 import { ExternalLinkIcon } from '@chakra-ui/icons';
 import moment from 'moment';
 
-const Article = () => {
+const Article = ({ data }) => {
 
-    // Testing Data
-    const data = {
-        by: "Crash0v3rid3",
-        descendants: 1,
-        id: 26321407,
-        kids: [
-            26321423
-        ],
-        score: 2,
-        time: 1614723974,
-        title: "Facebook, TikTok least trusted by Americans, Google most trusted, says survey",
-        type: "story",
-        url: "https://www.zdnet.com/article/facebook-tiktok-least-trusted-by-americans-google-most-trusted-says-survey/#ftag=RSSbaffb68"
-    }
-
-    const time = moment.unix(data.time).format()
+    const time = moment.unix(data?.time).format()
 
     return (
         <Box
-            borderBottomWidth="2px"
-            pb="16px"
+            p="16px"
+            mb="5px"
             d="flex"
             alignItems="center"
         >
@@ -36,14 +21,14 @@ const Article = () => {
                     fontSize="xs"
                     textTransform="uppercase"
                 >
-                    {moment(time).fromNow()} &bull; {data.descendants} comments
-                </Box>
+                    {moment(time).fromNow()} &bull; {data?.descendants} comments
+                    </Box>
                 <Heading
                     fontSize="md"
                     my="8px"
                 >
-                    <Link href={data.url} isExternal>
-                        {data.title} <ExternalLinkIcon mx="2" />
+                    <Link href={data?.url} isExternal>
+                        {data?.title} <ExternalLinkIcon mx="2" />
                     </Link>
                 </Heading>
                 <Text
@@ -52,7 +37,7 @@ const Article = () => {
                     letterSpacing="wide"
                     fontSize="xs"
                 >
-                    Author: {data.by}
+                    Author: {data?.by}
                 </Text>
             </Box>
         </Box>
