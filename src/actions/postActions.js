@@ -74,39 +74,3 @@ export const loadMore = (endPoint) => (dispatch, getState) => {
     })
 
 }
-
-// export const fetchTopPosts = () => (dispatch, getState) => {
-
-//     dispatch({
-//         type: types.LOADING_DATA
-//     })
-
-//     fetchData('/topstories').then(res => {
-
-//         const { data } = res
-//         // Store the Posts ID to load more data
-//         dispatch({
-//             type: types.FETCH_TOP_POSTS_IDS,
-//             payload: data
-//         })
-
-//         const { topLimit, topSkip, topPostsIDs } = getState().posts
-
-//         const promises = topPostsIDs.slice(topSkip, topLimit).map(id => {
-//             return fetchData(`/item/${id}`).then(res => res.data)
-//         })
-
-//         Promise.all(promises).then(res => {
-//             dispatch({
-//                 type: types.FETCH_TOP_POSTS,
-//                 payload: res
-//             })
-//         })
-
-//     }).catch(() => {
-//         dispatch(
-//             returnErrors('Failed to fetch posts', '500', 'FAIL_FETCH_POSTS')
-//         )
-//     })
-
-// }

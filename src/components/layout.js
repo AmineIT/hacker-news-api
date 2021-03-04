@@ -1,6 +1,5 @@
 import { Box } from '@chakra-ui/react';
 import Sidebar from './sidebar';
-import Search from './search';
 
 const Layout = ({ children }) => {
     return (
@@ -16,8 +15,10 @@ const Layout = ({ children }) => {
                 bg="gray.900"
                 pos="fixed"
                 top="0"
+                fontSize="lg"
+                fontWeight="600"
             >
-                <Search />
+                Hello Nas Daily 👋🏻
             </Box>
 
             <Box
@@ -25,6 +26,7 @@ const Layout = ({ children }) => {
                 alignItems="end"
             >
                 <Sidebar />
+
                 <Box
                     flex="1"
                     ml="200px"
